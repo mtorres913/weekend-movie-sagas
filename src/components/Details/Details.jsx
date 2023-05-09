@@ -1,10 +1,17 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function Details() {
     const genres = useSelector(store => store.genres);
+    const history = useHistory();
+
+    const toHome = () => {
+        history.push('/');
+    }
 
     return (
         <main key={genres.id}>
+          
             <section>
                 <h1>Movie Details</h1>
 
@@ -18,6 +25,7 @@ function Details() {
                         </div>
                     )
                 })}
+                  <button OnClick={toHome}>Back to list</button>
             </section>
         </main>
 
