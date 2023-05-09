@@ -2,20 +2,24 @@ import { useDispatch, useSelector } from 'react-redux';
 
 function Details() {
     const genres = useSelector(store => store.genres);
-    
+
     return (
-        <main>
-       <h1></h1>
-       <section>
-        {genres.map(genre => {
-            return (
-                <div key={genre.id}>
-                    <h2>{genre.name}</h2>
-                </div>
-            )
-        })}
-       </section>
-       </main>
+        <main key={genres.id}>
+            <section>
+                <h1>Movie Details</h1>
+
+                {genres.map(genre => {
+                    return (
+                        <div key={genre.id}>
+                            <h2>{genre.title}</h2>
+                            <h4>{genre.name}</h4>
+                            <img src={genre.poster} alt={genres.title} />
+                            <h5>{genre.description}</h5>
+                        </div>
+                    )
+                })}
+            </section>
+        </main>
 
     )
 }
