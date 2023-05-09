@@ -12,8 +12,9 @@ function MovieList() {
         dispatch({ type: 'FETCH_MOVIES' });
     }, []);
 
-    const toDetails = () => {
-        return history.push('/details');
+    const toDetails = (e) => {
+        console.log(e)
+        return history.push('/details/');
     }
 
     return (
@@ -24,7 +25,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <img src={movie.poster} alt={movie.title} onClick={toDetails}/>
+                            <img src={movie.poster} alt={movie.title} onClick={(e) => toDetails(movie.id) }/>
                         </div>
                     );
                 })}
