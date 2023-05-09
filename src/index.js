@@ -42,6 +42,7 @@ const movies = (state = [], action) => {
     }
 }
 
+
 // Used to store the movie genres
 const genres = (state = [], action) => {
     switch (action.type) {
